@@ -2,13 +2,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const { merge } = require('webpack-merge')
 
+const paths = require('./paths')
 const common = require('./webpack.common')
 
 module.exports = merge(common, {
   mode: 'production',
   devtool: false,
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: paths.build,
     publicPath: '/',
     filename: 'js/[name].[contenthash].bundle.js',
   },
